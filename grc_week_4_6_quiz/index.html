@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 2 Interactive Quiz - Virtual Lab Setup & Tools</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 0 15px; background:#f9f9f9; }
+  h1, h2 { color: #2c3e50; }
+  .quiz-section { display: none; margin-bottom: 30px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px #ccc;}
+  .quiz-section.active { display: block; }
+  .question { margin-bottom: 15px; }
+  label { display: block; margin: 6px 0; cursor: pointer; }
+  button { background-color: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+  button:hover { background-color: #3498db; }
+  .feedback { margin-top: 10px; font-weight: bold; }
+  .correct { color: green; }
+  .incorrect { color: red; }
+  input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;}
+  .navigation { margin-bottom: 30px; }
+  .navigation button { margin-right: 10px; }
+  #final-score { font-size: 1.2em; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>Week 2 Interactive Quiz</h1>
+<p><em>Virtual Lab Setup & Tools Introduction</em></p>
+
+<div class="navigation">
+  <button onclick="showSection(0)">Day 4: VirtualBox & Kali Linux VM</button>
+  <button onclick="showSection(1)">Day 5: Kali Linux Top 10 Tools</button>
+  <button onclick="showSection(2)">Day 6: TryHackMe Setup</button>
+</div>
+
+<form id="quizForm">
+
+<!-- Day 4 -->
+<div class="quiz-section active" id="section-0">
+  <h2>Day 4: Installing VirtualBox & Importing Kali Linux VM</h2>
+
+  <div class="question">
+    <p>1. What is the recommended minimum RAM to allocate when importing the Kali Linux VM in VirtualBox?</p>
+    <label><input type="radio" name="d4_q1" value="a"> a) 512 MB</label>
+    <label><input type="radio" name="d4_q1" value="b"> b) 1 GB</label>
+    <label><input type="radio" name="d4_q1" value="c"> c) 2 GB</label>
+    <label><input type="radio" name="d4_q1" value="d"> d) 8 GB</label>
+  </div>
+
+  <div class="question">
+    <p>2. Which file format is used for the pre-built Kali Linux VM downloaded from the official site?</p>
+    <label><input type="radio" name="d4_q2" value="a"> a) .iso</label>
+    <label><input type="radio" name="d4_q2" value="b"> b) .ova</label>
+    <label><input type="radio" name="d4_q2" value="c"> c) .img</label>
+    <label><input type="radio" name="d4_q2" value="d"> d) .exe</label>
+  </div>
+
+  <div class="question">
+    <p>3. What is the default username and password for the imported Kali Linux VM?</p>
+    <label><input type="radio" name="d4_q3" value="a"> a) root/root</label>
+    <label><input type="radio" name="d4_q3" value="b"> b) kali/kali</label>
+    <label><input type="radio" name="d4_q3" value="c"> c) admin/admin</label>
+    <label><input type="radio" name="d4_q3" value="d"> d) user/password</label>
+  </div>
+
+  <div class="question">
+    <p>4. VirtualBox is a paid software.</p>
+    <label><input type="radio" name="d4_q4" value="true"> True</label>
+    <label><input type="radio" name="d4_q4" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>5. You must enable VT-x or AMD-V virtualization in BIOS to run 64-bit VMs.</p>
+    <label><input type="radio" name="d4_q5" value="true"> True</label>
+    <label><input type="radio" name="d4_q5" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>6. Snapshots in VirtualBox allow you to revert the VM to a previous saved state.</p>
+    <label><input type="radio" name="d4_q6" value="true"> True</label>
+    <label><input type="radio" name="d4_q6" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>7. Name two common networking modes in VirtualBox and briefly describe one.</p>
+    <input type="text" name="d4_q7" placeholder="Type your answer here..." />
+  </div>
+
+  <div class="question">
+    <p>8. What command do you use to update Kali Linux packages after first login?</p>
+    <input type="text" name="d4_q8" placeholder="Type your answer here..." />
+  </div>
+
+  <button type="button" onclick="checkAnswers(0)">Submit Day 4 Quiz</button>
+  <div class="feedback" id="feedback-0"></div>
+</div>
+
+<!-- Day 5 -->
+<div class="quiz-section" id="section-1">
+  <h2>Day 5: Kali Linux — Top 10 Tools Every Analyst Should Know</h2>
+
+  <div class="question">
+    <p>1. Which Kali Linux tool is used primarily for network scanning and service discovery?</p>
+    <label><input type="radio" name="d5_q1" value="a"> a) John the Ripper</label>
+    <label><input type="radio" name="d5_q1" value="b"> b) Nmap</label>
+    <label><input type="radio" name="d5_q1" value="c"> c) Hydra</label>
+    <label><input type="radio" name="d5_q1" value="d"> d) Burp Suite</label>
+  </div>
+
+  <div class="question">
+    <p>2. What is the main purpose of Wireshark?</p>
+    <label><input type="radio" name="d5_q2" value="a"> a) Password cracking</label>
+    <label><input type="radio" name="d5_q2" value="b"> b) Network traffic analysis</label>
+    <label><input type="radio" name="d5_q2" value="c"> c) Exploitation framework</label>
+    <label><input type="radio" name="d5_q2" value="d"> d) SQL injection</label>
+  </div>
+
+  <div class="question">
+    <p>3. Which tool can be used to crack wireless network keys?</p>
+    <label><input type="radio" name="d5_q3" value="a"> a) Aircrack-ng</label>
+    <label><input type="radio" name="d5_q3" value="b"> b) Dirb</label>
+    <label><input type="radio" name="d5_q3" value="c"> c) SQLmap</label>
+    <label><input type="radio" name="d5_q3" value="d"> d) Metasploit</label>
+  </div>
+
+  <div class="question">
+    <p>4. Metasploit is mainly used for vulnerability scanning.</p>
+    <label><input type="radio" name="d5_q4" value="true"> True</label>
+    <label><input type="radio" name="d5_q4" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>5. You should only use these tools on systems you have explicit permission to test.</p>
+    <label><input type="radio" name="d5_q5" value="true"> True</label>
+    <label><input type="radio" name="d5_q5" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>6. Hydra is a tool for brute forcing passwords.</p>
+    <label><input type="radio" name="d5_q6" value="true"> True</label>
+    <label><input type="radio" name="d5_q6" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>7. Give one example of how you would run Nmap to detect service versions on a host.</p>
+    <input type="text" name="d5_q7" placeholder="Type your answer here..." />
+  </div>
+
+  <div class="question">
+    <p>8. Name two tools from the Kali top 10 that can be used for web application testing.</p>
+    <input type="text" name="d5_q8" placeholder="Type your answer here..." />
+  </div>
+
+  <button type="button" onclick="checkAnswers(1)">Submit Day 5 Quiz</button>
+  <div class="feedback" id="feedback-1"></div>
+</div>
+
+<!-- Day 6 -->
+<div class="quiz-section" id="section-2">
+  <h2>Day 6: Setting Up TryHackMe and Exploring the Platform</h2>
+
+  <div class="question">
+    <p>1. What is the main purpose of TryHackMe?</p>
+    <label><input type="radio" name="d6_q1" value="a"> a) Cloud storage</label>
+    <label><input type="radio" name="d6_q1" value="b"> b) Online cybersecurity training labs</label>
+    <label><input type="radio" name="d6_q1" value="c"> c) Software development</label>
+    <label><input type="radio" name="d6_q1" value="d"> d) Network hardware sales</label>
+  </div>
+
+  <div class="question">
+    <p>2. Which VPN client is commonly used to connect to TryHackMe labs?</p>
+    <label><input type="radio" name="d6_q2" value="a"> a) Cisco AnyConnect</label>
+    <label><input type="radio" name="d6_q2" value="b"> b) OpenVPN</label>
+    <label><input type="radio" name="d6_q2" value="c"> c) FortiClient</label>
+    <label><input type="radio" name="d6_q2" value="d"> d) WireGuard</label>
+  </div>
+
+  <div class="question">
+    <p>3. What types of “rooms” are available on TryHackMe?</p>
+    <label><input type="radio" name="d6_q3" value="a"> a) Beginner, Intermediate, Advanced</label>
+    <label><input type="radio" name="d6_q3" value="b"> b) Only Beginner</label>
+    <label><input type="radio" name="d6_q3" value="c"> c) Only Advanced</label>
+    <label><input type="radio" name="d6_q3" value="d"> d) None of the above</label>
+  </div>
+
+  <div class="question">
+    <p>4. TryHackMe rooms contain step-by-step guided challenges and tasks.</p>
+    <label><input type="radio" name="d6_q4" value="true"> True</label>
+    <label><input type="radio" name="d6_q4" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>5. You do not need a VPN connection to access TryHackMe lab machines.</p>
+    <label><input type="radio" name="d6_q5" value="true"> True</label>
+    <label><input type="radio" name="d6_q5" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>6. TryHackMe has community forums and help available.</p>
+    <label><input type="radio" name="d6_q6" value="true"> True</label>
+    <label><input type="radio" name="d6_q6" value="false"> False</label>
+  </div>
+
+  <div class="question">
+    <p>7. Name one advantage of using TryHackMe combined with a local Kali Linux VM.</p>
+    <input type="text" name="d6_q7" placeholder="Type your answer here..." />
+  </div>
+
+  <div class="question">
+    <p>8. What should you do if you get stuck on a TryHackMe challenge?</p>
+    <input type="text" name="d6_q8" placeholder="Type your answer here..." />
+  </div>
+
+  <button type="button" onclick="checkAnswers(2)">Submit Day 6 Quiz</button>
+  <div class="feedback" id="feedback-2"></div>
+</div>
+
+<div id="final-score"></div>
+
+<script>
+  const answers = {
+    // Day 4
+    d4_q1: 'c',
+    d4_q2: 'b',
+    d4_q3: 'b',
+    d4_q4: 'false',
+    d4_q5: 'true',
+    d4_q6: 'true',
+    d4_q7: ['nat', 'bridged'], // keywords
+    d4_q8: ['sudo apt update', 'sudo apt full-upgrade', 'apt update', 'apt upgrade', 'apt full-upgrade'],
+
+    // Day 5
+    d5_q1: 'b',
+    d5_q2: 'b',
+    d5_q3: 'a',
+    d5_q4: 'false',
+    d5_q5: 'true',
+    d5_q6: 'true',
+    d5_q7: ['nmap -sV', 'nmap -sV <target-ip>'],
+    d5_q8: ['burp', 'dirb', 'sqlmap', 'web vulnerability'],
+
+    // Day 6
+    d6_q1: 'b',
+    d6_q2: 'b',
+    d6_q3: 'a',
+    d6_q4: 'true',
+    d6_q5: 'false',
+    d6_q6: 'true',
+    d6_q7: ['practice', 'hands-on', 'local kali', 'combine'],
+    d6_q8: ['community', 'ask', 'search', 'help', 'forums']
+  };
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function checkShortAnswer(inputValue, keywords) {
+    const text = normalize(inputValue);
+    if (!text) return false;
+    // Check if any keyword is contained in the answer
+    return keywords.some(k => text.includes(k));
+  }
+
+  function checkAnswers(day) {
+    const section = document.getElementById(`section-${day}`);
+    const feedbackDiv = document.getElementById(`feedback-${day}`);
+    let score = 0;
+    let total = 0;
+    let messages = [];
+
+    // Collect inputs in this section
+    const inputs = section.querySelectorAll('input');
+    const questionsCount = new Set();
+    inputs.forEach(input => {
+      if(input.name) questionsCount.add(input.name);
+    });
+    total = questionsCount.size;
+
+    questionsCount.forEach(qName => {
+      const inputType = document.querySelector(`[name="${qName}"]`).type;
+      let correct = false;
+
+      if(inputType === 'radio') {
+        const selected = section.querySelector(`[name="${qName}"]:checked`);
+        if(!selected) {
+          messages.push(`Question ${qName.slice(-1)}: No answer selected.`);
+          return;
+        }
+        if(normalize(selected.value) === normalize(answers[qName])) {
+          score++;
+          correct = true;
+        }
+      } else if(inputType === 'text') {
+        const inputField = section.querySelector(`[name="${qName}"]`);
+        if(Array.isArray(answers[qName])) {
+          if(checkShortAnswer(inputField.value, answers[qName])) {
+            score++;
+            correct = true;
+          }
+        } else {
+          if(normalize(inputField.value) === normalize(answers[qName])) {
+            score++;
+            correct = true;
+          }
+        }
+        if(!correct) {
+          messages.push(`Question ${qName.slice(-1)}: Your answer "${inputField.value}" may be incorrect or incomplete.`);
+        }
+      }
+    });
+
+    let percent = ((score/total)*100).toFixed(1);
+    feedbackDiv.innerHTML = `<p>You scored ${score} out of ${total} (${percent}%).</p>`;
+    if(messages.length > 0) {
+      feedbackDiv.innerHTML += `<p><strong>Review:</strong><br>${messages.join('<br>')}</p>`;
+    }
+    // Disable submit button after submission
+    section.querySelector('button').disabled = true;
+
+    updateFinalScore();
+  }
+
+  function showSection(index) {
+    const sections = document.querySelectorAll('.quiz-section');
+    sections.forEach((sec, i) => {
+      sec.classList.toggle('active', i === index);
+    });
+    // Clear any previous feedback
+    document.querySelectorAll('.feedback').forEach(fb => fb.innerHTML = '');
+  }
+
+  function updateFinalScore() {
+    const feedbacks = [...document.querySelectorAll('.feedback')];
+    let totalScore = 0, totalQuestions = 0;
+    feedbacks.forEach(fb => {
+      const text = fb.textContent;
+      if(text) {
+        const match = text.match(/You scored (\d+) out of (\d+)/);
+        if(match) {
+          totalScore += parseInt(match[1], 10);
+          totalQuestions += parseInt(match[2], 10);
+        }
+      }
+    });
+    const finalDiv = document.getElementById('final-score');
+    if(totalQuestions > 0) {
+      const percent = ((totalScore/totalQuestions)*100).toFixed(1);
+      finalDiv.textContent = `Total score across all days: ${totalScore} / ${totalQuestions} (${percent}%)`;
+    } else {
+      finalDiv.textContent = '';
+    }
+  }
+
+</script>
+
+</body>
+</html>
